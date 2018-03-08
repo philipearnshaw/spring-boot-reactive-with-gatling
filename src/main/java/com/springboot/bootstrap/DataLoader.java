@@ -14,15 +14,14 @@ import lombok.RequiredArgsConstructor;
 @Component
 public class DataLoader implements CommandLineRunner {
     
-    private static final int NUM_RECORDS = 100;
+    private static final int NUM_RECORDS = 1;
 
     private final CustomerRepository customerRepository;
 
     @Override
     public void run(String... args) throws Exception {
-        if (customerRepository.count().block() == 0) {
-            loadCustomers();
-        }
+        customerRepository.deleteAll().block();
+        loadCustomers();
     }
 
     private void loadCustomers() {

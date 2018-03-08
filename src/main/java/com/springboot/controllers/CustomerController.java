@@ -1,5 +1,7 @@
 package com.springboot.controllers;
 
+import java.time.Duration;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +23,6 @@ public class CustomerController {
     
     @GetMapping
     public Flux<Customer> getAllCustomers() {
-        return customerRepository.findAll();
+        return customerRepository.findAll();//.delayElements(Duration.ofMillis(10));
     }
 }
