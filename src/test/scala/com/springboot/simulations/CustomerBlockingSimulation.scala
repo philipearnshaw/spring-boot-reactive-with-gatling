@@ -6,14 +6,14 @@ import io.gatling.http.request.builder.HttpRequestBuilder.toActionBuilder
 
 import scala.concurrent.duration._
 
-class CustomerSimulation extends Simulation {
+class CustomerBlockingSimulation extends Simulation {
 
     before {
-        println("***** Customer simulation start *****")
+        println("***** Customer blocking simulation start *****")
     }
 
     after {
-        println("***** Customer simulation end ******")
+        println("***** Customer blocking simulation end ******")
     }
 
     val theHttpProtocolBuilder = http
@@ -35,6 +35,6 @@ class CustomerSimulation extends Simulation {
         )
         
     setUp(
-       theScenarioBuilder.inject(rampUsersPerSec(1) to (300) during(5 minutes))
+       theScenarioBuilder.inject(rampUsersPerSec(50) to (200) during(5 minutes))
     ).protocols(theHttpProtocolBuilder)
 }

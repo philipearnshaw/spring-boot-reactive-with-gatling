@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 @Component
 public class DataLoader implements CommandLineRunner {
     
-    private static final int NUM_RECORDS = 1;
+    private static final int NUM_RECORDS = 50;
 
     private final CustomerRepository customerRepository;
 

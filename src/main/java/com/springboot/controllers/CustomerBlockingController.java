@@ -22,7 +22,7 @@ public class CustomerBlockingController {
     
     @GetMapping
     public List<Customer> getAllCustomers() throws InterruptedException {
-   //     Thread.sleep(10);
+        Thread.sleep(50);
         return customerRepository.findAll();
     }
 }

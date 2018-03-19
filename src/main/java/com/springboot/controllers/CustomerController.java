@@ -23,6 +23,6 @@ public class CustomerController {
     
     @GetMapping
     public Flux<Customer> getAllCustomers() {
-        return customerRepository.findAll();//.delayElements(Duration.ofMillis(10));
+        return customerRepository.findAll().delayElements(Duration.ofMillis(1));
     }
 }
